@@ -1,6 +1,13 @@
 class AddOrganization{
-    get addOrganization(){
+    get OKButton(){
+        return cy.get('.vs-c-modal--features-button > .vs-c-btn')
+    }
+    get addNewOrganization(){
         return cy.get(".vs-c-my-organization--add-new");
+    }
+
+    get orgNameLabel(){
+        return cy.get("label");
     }
 
     get organizationNameInput(){
@@ -8,18 +15,23 @@ class AddOrganization{
     }
 
     get newOrgNextButton(){
-        return cy.get("button").eq(1);
+        return cy.get('[name="next_btn"]');
     }
 
     get createOrgButton(){
-        return cy.get("button").eq(1);
+        return cy.get('[name="next_btn"]');
+    }
+
+    get orgTitle(){
+        return cy.get('.vs-l-organization__title').find("strong");
     }
 
     addOrganization(orgName){
-        addOrganization.click()
+        this.addNewOrganization.click()
         this.organizationNameInput.type(orgName)
         this.newOrgNextButton.click()
         this.createOrgButton.click()
+        this.OKButton.click()
     }
 }
 
