@@ -1,4 +1,8 @@
 class Login{
+    get loginHeading(){
+        return cy.get("h1");
+    }
+
     get emailInput(){
         return cy.get("input[type='email']");
     }
@@ -8,7 +12,7 @@ class Login{
     }
 
     get loginButton(){
-        return cy.get("button");
+        return cy.get("button").eq(0);
     }
 
     login(email, password){
